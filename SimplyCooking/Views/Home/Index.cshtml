@@ -1,0 +1,53 @@
+﻿
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/Site.css" >
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action( "TypeOfDishesIndex", "Home", new { id = 1 })">
+                    <img src="@Url.Content("https://akademiasmaku.pl/upload/recipes/2311/big/omlet-z-serem-i-szynka-2311.jpg")" alt="Lights" style="width:100%; height:150px">
+                    <div class="caption">
+                        <center> <p>Śniadania</p></center>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action( "TypeOfDishesIndex", "Home", new { id = 2 })">
+                    <img src="@Url.Content("https://i.wpimg.pl/O/644x432/d.wpimg.pl/1831575938-1560570594/kotlet-schabowy.jpg")" alt="Nature" style="width:100%; height:150px">
+                    <div class="caption">
+                        <center>  <p>Obiady</p></center>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action( "TypeOfDishesIndex", "Home", new { id = 3 })">
+                    <img src="@Url.Content("http://r-scale-60.dcs.redcdn.pl/scale/o2/tvn/web-content/m/p96/i/50905d7b2216bfeccb5b41016357176b/726ffe6a-9dc4-11e2-94b0-0025b511229e.jpg?type=1&srcmode=0&srcx=7%2F10&srcy=44%2F100&srcw=95%2F100&srch=54%2F100&dstw=640&dsth=360&quality=85" )" alt="Fjords" style="width:100%; height:150px">
+                    <div class="caption">
+                        <center>  <p>Kolacje</p></center>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

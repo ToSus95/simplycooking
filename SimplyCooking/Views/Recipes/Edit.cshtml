@@ -1,0 +1,81 @@
+﻿@model SimplyCooking.Models.RecipesEditViewModel
+
+@{
+    ViewBag.Title = "Edycja Przepisu ";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="container" style="background-color: rgba(255,255,255,0.5);">
+    <div class="form-horizontal">
+        <h3> @Model.Recipe.Name</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Recipe.RecipeID)
+        @Html.HiddenFor(model => model.Recipe.UserID)
+
+        <div class="form-group">
+            <div class="control-label col-md-2"> <h4>Nazwa Przepisu</h4></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Recipe.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Recipe.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2"> <h4>Sposób przygotowania</h4></div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Recipe.Description, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.Recipe.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2"> <h4>Składniki</h4></div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Recipe.Components, new { @class = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.Recipe.Components, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2"> <h4>Pora posiłku</h4></div>
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.Recipe.TypeofdishesID, Model.TypeOfDisches, new { title = "Wybierz jedno z poniższych..." })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2"> <h4>Rodzaj posiłku</h4></div>
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.Recipe.TypeofmealsID, Model.TypeOfMeals, new { title = "Wybierz jedno z poniższych..." })
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Zapisz" class="btn btn-default" />
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <button type="button" onclick="location.href='@Url.Action("Details", "Recipes", new { id = Model.Recipe.RecipeID })'"> Szczegóły </button>
+    <button type="button" onclick="location.href='@Url.Action("Delete", "Recipes", new { id = Model.Recipe.RecipeID })'"> Usuń </button>
+
+</div>
+    }
+
